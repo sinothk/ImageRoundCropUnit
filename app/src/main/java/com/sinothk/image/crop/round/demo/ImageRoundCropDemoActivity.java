@@ -24,7 +24,7 @@ public class ImageRoundCropDemoActivity extends AppCompatActivity {
     ImageView imageView;
     Button btnClip;
 
-    String oldImagPath = "";
+    String oldImagePath = "";
 
 
     @Override
@@ -38,7 +38,7 @@ public class ImageRoundCropDemoActivity extends AppCompatActivity {
         btnClip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageRoundCropActivity.start(ImageRoundCropDemoActivity.this, oldImagPath, 199);
+                ImageRoundCropActivity.start(ImageRoundCropDemoActivity.this, oldImagePath, 199);
             }
         });
 
@@ -64,7 +64,7 @@ public class ImageRoundCropDemoActivity extends AppCompatActivity {
                 }
             }
 
-            oldImagPath = mSaveUri.getPath();
+            oldImagePath = mSaveUri.getPath();
         }
     }
 
