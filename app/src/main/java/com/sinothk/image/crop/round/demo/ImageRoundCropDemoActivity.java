@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.sinothk.image.crop.round.FileUtil;
 import com.sinothk.image.crop.round.ImageRoundCropActivity;
 
 import java.io.File;
