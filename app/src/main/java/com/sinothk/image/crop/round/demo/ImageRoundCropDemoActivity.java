@@ -41,7 +41,6 @@ public class ImageRoundCropDemoActivity extends AppCompatActivity {
             }
         });
 
-
         Bitmap oldBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.yinhun);
         Uri mSaveUri = Uri.fromFile(new File(getCacheDir(), "crop_" + System.currentTimeMillis() + ".png"));
         if (mSaveUri != null) {

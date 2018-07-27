@@ -3,18 +3,24 @@
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
+    <include
+        android:id="@+id/titleBarLayout"
+        layout="@layout/crop_image_title_bar" />
 
     <Button
         android:id="@+id/btn_clip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="确认" />
+        android:text="确认"
+        android:visibility="gone" />
 
     <com.sinothk.image.crop.round.ImageRoundCropView
         android:id="@+id/cropView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btn_clip" />
+        android:layout_above="@id/btn_clip"
+        android:layout_below="@+id/titleBarLayout"
+        android:background="#000001" />
 
 </RelativeLayout>

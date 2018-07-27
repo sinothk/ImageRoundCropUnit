@@ -25,9 +25,7 @@ public class ImageRoundCropActivity extends AppCompatActivity implements View.On
     public static int CODE_RESULT = 100;
 
     private ImageRoundCropView wrhImageView;
-    private Button btnClip;
-
-//    private Bitmap oldBitmap;
+//    private Button btnClip;
 
     public static void start(Activity mActivity, String imgPath, int requestCode) {
         Intent intent = new Intent(mActivity, ImageRoundCropActivity.class);
@@ -35,31 +33,43 @@ public class ImageRoundCropActivity extends AppCompatActivity implements View.On
         mActivity.startActivityForResult(intent, requestCode);
     }
 
-    private Bitmap getBitmap(String oldBitmapPath) {
-
-        Bitmap bitmap = BitmapFactory.decodeFile(oldBitmapPath);
-        return bitmap;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_round_crop);
 
-        btnClip = (Button) findViewById(R.id.btn_clip);
-        btnClip.setOnClickListener(this);
+//        btnClip = (Button) findViewById(R.id.btn_clip);
+//        btnClip.setOnClickListener(this);
 
         wrhImageView = (ImageRoundCropView) findViewById(R.id.cropView);
 
 //        wrhImageView.setImageResource(imgId);
-
         String oldBitmapPath = getIntent().getStringExtra("imgPath");
-        wrhImageView.setImageBitmap(getBitmap(oldBitmapPath));
+        wrhImageView.setImageBitmap(BitmapFactory.decodeFile(oldBitmapPath));
+
+        // 按钮事件
+        findViewById(R.id.titleBarLeft).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        findViewById(R.id.completeTv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ok();
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
-        wrhImageView.setVisibility(View.INVISIBLE);
+//        ok();
+    }
+
+    private void ok() {
+        wrhImageView.setVisibility(View.VISIBLE);
         Bitmap zoomedCropBitmap = wrhImageView.clipBitmap();
 
         // 保存图片
